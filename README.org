@@ -1,0 +1,42 @@
+* Breathe
+*Don't forget to breathe!*
+** Introduction
+This addon is designed to help hunters survive their ability ~Feign Death~, which can be lethal for hardcore characters.
+
+It tries to help preventing accidental deaths caused by using the ~Feign Death~ ability, but there is no guarantee (see Disclaimer).
+
+** Features
+- Monitors using the ~Feign Death~ ability and cancels it after a specified timem hopefully.
+- Provides an alert if the ability is active at a configured time.
+- Cancels monitored spells when the UI is reloaded.
+
+** Options
+- The addon provides several configurable options:
+  - =time=: Time in seconds before the spell is cancelled. Defaults to 330 seconds (5.5 minutes), so 30 s before death.
+    You can change this value with the slider between 10 and 350 and manually between 1 and 359 (caution, better not exceed 358 s).
+  - =alertTime=: Time in seconds before a red alert is shown. Defaults to 340 seconds.
+  - =spellIds=: Comma-separated list of spell IDs to monitor. Defaults to 5384 (Hunter's Feign Death).
+  - =cancelOnReload=: Boolean option to cancel spells on reload. Defaults to true.
+
+** Code Overview
+- The addon uses Ace3 libraries.
+  - https://www.wowace.com/projects/ace3/files
+- The main addon object is created using AceAddon:NewAddon('Breathe', 'AceEvent-3.0', 'AceConsole-3.0').
+- The default configuration is defined in the =defaults= table.
+- The =OnInitialize= function initializes the addon's database and registers the options table.
+- The =OnEnable= function registers the UNIT_SPELLCAST_SUCCEEDED event and cancels spells if the cancelOnReload option is enabled.
+- The =OnDisable= function unregisters all events.
+- The =CreatePulseFrame= function creates a frame for displaying a red alert.
+- The =UNIT_SPELLCAST_SUCCEEDED= function handles the spell cast event and schedules the cancellation and alert functions.
+- The =CancelSpells= function cancels all monitored spells.
+- The =AlertSpell= function shows a red alert for the monitored spell.
+- The =CancelSpell= function cancels a specific monitored spell.
+
+** Usage
+- To use the addon, simply install it and configure the options as needed.
+- The addon will automatically monitor the specified spells and try to cancel them after the configured time.
+
+** Disclaimer
+There is no guarantee that the addon works as expected and the author cannot be blamed in case of death.
+The addon may contain bugs, the timer function might not get called, the configuration value might be corrupted, you name it.
+It's rather a safety belt, which is better never needed.
