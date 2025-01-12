@@ -21,7 +21,9 @@ stds.wow = {
    },
 
    read_globals = { -- these globals can only be accessed.
+      'GetTime',
       'C_Timer',
+      'C_UnitAuras',
       'CancelUnitBuff',
       'CreateFrame',
       'GetAddOnMetadata',

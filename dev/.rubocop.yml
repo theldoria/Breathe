@@ -1,0 +1,8 @@
+---
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.4
+
+Layout/LineLength:
+  Max: 180
+

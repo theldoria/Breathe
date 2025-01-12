@@ -32,6 +32,11 @@ It tries to help preventing accidental deaths caused by using the ~Feign Death~ 
 - The =AlertSpell= function shows a red alert for the monitored spell.
 - The =CancelSpell= function cancels a specific monitored spell.
 
+Get current interface version:
+#+begin_src lua :eval no
+print((select(4, GetBuildInfo())))
+#+end_src
+
 ** Usage
 - To use the addon, simply install it and configure the options as needed.
 - The addon will automatically monitor the specified spells and try to cancel them after the configured time.
@@ -40,3 +45,6 @@ It tries to help preventing accidental deaths caused by using the ~Feign Death~ 
 There is no guarantee that the addon works as expected and the author cannot be blamed in case of death.
 The addon may contain bugs, the timer function might not get called, the configuration value might be corrupted, you name it.
 It's rather a safety belt, which is better never needed.
+
+** Links
+- https://legacy.curseforge.com/wow/addons/breathe

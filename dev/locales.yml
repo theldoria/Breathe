@@ -1,0 +1,6 @@
+---
+:default: enUS
+:definitions:
+- ../Locales/*.lua
+:uses:
+- ../*.lua

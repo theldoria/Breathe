@@ -1,0 +1,13 @@
+--- -*- mode: lua; -*-
+local addonName, _T = ...
+
+local AceLocale = LibStub('AceLocale-3.0')
+local L = AceLocale:NewLocale(addonName, '<%= language %>'<%= ', true' if is_default %>)
+
+% localizations.each do |key, translation|
+%    if translation[language]
+L['<%= key %>'] = '<%= translation[language] or key %>'<% unless translation['use'] %> -- TODO: unused? <% end %>
+%    else
+L['<%= key %>'] = '<%= key %>' -- TODO: translate
+%    end
+% end
